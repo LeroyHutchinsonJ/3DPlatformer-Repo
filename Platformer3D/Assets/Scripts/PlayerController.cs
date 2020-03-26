@@ -89,5 +89,9 @@ public class PlayerController : MonoBehaviour
             //I load the first scene in the build index
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        else if(other.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
