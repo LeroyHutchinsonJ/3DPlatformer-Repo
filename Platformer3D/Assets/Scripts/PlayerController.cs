@@ -5,10 +5,18 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     private Rigidbody rig;
 
+    
+    private AudioSource audioSource;
+
+
+
     void Awake()
     {
         //Get the rigid body component of the player
         rig = GetComponent<Rigidbody>();
+
+        //This gets the coin audio from the component
+        audioSource = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
     void Start()
@@ -26,8 +34,6 @@ public class PlayerController : MonoBehaviour
 
         //Calls the move function
         Move();
-        
-
         
     }
 
@@ -100,6 +106,8 @@ public class PlayerController : MonoBehaviour
         else if(other.CompareTag("Coin"))
         {
             Destroy(other.gameObject);
+            //This plays the audio when the player collides with a coin
+            audioSource.Play();
         }
     }
 
