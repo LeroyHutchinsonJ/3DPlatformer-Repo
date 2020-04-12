@@ -39,13 +39,11 @@ public class EnemyController : MonoBehaviour
             //If the object is back where it started
             if(targetPos == startPos)
             {
-                Debug.Log(targetPos + " is the Target Position: If Statement");
                 //Set the target position to the end
                 targetPos = startPos + offsetEndPos;
             }
             else if(targetPos == startPos + offsetEndPos) //If the object is at the end
-            {
-                Debug.Log(targetPos + " is the Target Position: Else Statement");
+            {     
                 //Set the target position to the place where the box started
                 targetPos = startPos;
             }

@@ -19,8 +19,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y < -10)
+        {
+            SceneManager.LoadScene(1);
+        }
+
         //Calls the move function
         Move();
+        
+
+        
     }
 
     void Move()
@@ -94,4 +102,6 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    
 }
