@@ -100,14 +100,20 @@ public class PlayerController : MonoBehaviour
         //If the thing I collide with has an enemy tag
         if (other.CompareTag("Enemy"))
         {
-            //I load the first scene in the build index
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //I call the gameover function from GameManager
+            GameManager.instance.GameOver();
         }
         else if(other.CompareTag("Coin"))
         {
+            //This destroys the coin
             Destroy(other.gameObject);
+
             //This plays the audio when the player collides with a coin
             audioSource.Play();
+
+            //Go into the GameManager class and activate the add score function
+            GameManager.instance.AddScore(1);
+
         }
     }
 
