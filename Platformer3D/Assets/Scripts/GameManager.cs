@@ -9,13 +9,25 @@ public class GameManager : MonoBehaviour
     public int score;
 
 
-    //Instance?
+    //If I set the instance to this, I will be able to call this game objects functions from different classes or scripts!
     public static GameManager instance;
 
     private void Awake()
     {
-        //This sets the instance
-        instance = this;
+        //So this is a way for checking for duplicate game objects, if there is a game object in the scene and it is not this one, destroy it
+        if (instance != null && instance != this)
+        {
+            //Destroy gameObject
+            Destroy(gameObject);
+        }
+        else
+        {
+            //Otherwise instance equal this
+            instance = this;
+
+            //I need to maintain this game object so that our scores will transfer between scenes
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     // Start is called before the first frame update

@@ -604,6 +604,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndGoal
       objectReference: {fileID: 0}
+    - target: {fileID: 703510199257564590, guid: 3fcf58ae7ae488e419830ebe0aba159e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 703510199257564591, guid: 3fcf58ae7ae488e419830ebe0aba159e,
         type: 3}
       propertyPath: m_LocalPosition.x

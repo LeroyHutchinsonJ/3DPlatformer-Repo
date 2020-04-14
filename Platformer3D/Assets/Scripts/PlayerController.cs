@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
         //This gets the coin audio from the component
         audioSource = GetComponent<AudioSource>();
+
     }
     // Start is called before the first frame update
     void Start()
@@ -113,7 +114,11 @@ public class PlayerController : MonoBehaviour
 
             //Go into the GameManager class and activate the add score function
             GameManager.instance.AddScore(1);
-
+        }
+        else if(other.CompareTag("Goal"))
+        {
+            //Calls the level end function when the goal is pressed
+            GameManager.instance.LevelEnd();
         }
     }
 
