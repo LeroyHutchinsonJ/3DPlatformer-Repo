@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     //With the static type I will be able to call this class in other scripts without having to create an object of it, using this game object as a type will allow me to call non static methods as well
     public static GameManager instance;
 
+    //A static objects methods will be treated as static, meaning you can use the object as a way to call those methods in other classes
+
     private void Awake()
     {
         //So this is a way for checking for duplicate game objects, if there is a game object in the scene and it is not this one, destroy it
@@ -39,6 +41,9 @@ public class GameManager : MonoBehaviour
     public void AddScore(int scoreToGive)
     {
         score += scoreToGive;
+
+        //This updates the UI text
+        GameUI.instance.UpdateScoreText();
     }
 
     //This code will activate when the level ends
@@ -60,16 +65,17 @@ public class GameManager : MonoBehaviour
     //This function gets called when we finish all the levels
     public void WinGame()
     {
-
+        GameUI.instance.SetEndScreen(true);
     }
 
     //This function gets called when we fail a level
     public void GameOver()
     {
-        //Basically telling the level to restart
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //Calls the end screen function from game ui
+        GameUI.instance.SetEndScreen(false);
     }
 
+    
     // Update is called once per frame
     void Update()
     {

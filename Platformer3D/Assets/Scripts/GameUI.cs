@@ -19,16 +19,60 @@ public class GameUI : MonoBehaviour
     {
         instance = this;
     }
+    //This function is called to update the score
+
+    public void UpdateScoreText()
+    {
+        //This should set the text of the scoreText
+        scoreText.text = "Score: " + GameManager.instance.score;
+    }
+
+    //This gets called when the player wins or dies
+    public void SetEndScreen(bool hasWon)
+    {
+        //This activates the game object(end screen)
+        endScreen.SetActive(true);
+
+        //This is going to set the text of the end screen score
+        endScreenScoreText.text = "<b>Score</b>\n" + GameManager.instance.score;
+
+        //If the player has won
+        if(hasWon)
+        {
+            //This sets the end screen header text and color
+            endScreenHeader.text = "<b>You Win!</b>";
+            endScreenHeader.color = Color.green;
+        }
+        else if(hasWon == false)
+        {
+            //This sets the game over text and color
+            endScreenHeader.text = "<b>Game Over!</b>";
+            endScreenHeader.color = Color.red;
+        }
+
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-    
+        UpdateScoreText();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    //This function will be called when the restart button is pressed
+    public void OnRestartButton()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    //This function will be called when the menu button is pressed
+    public void OnMenuButton()
+    {
+        SceneManager.LoadScene(0);
     }
 }
