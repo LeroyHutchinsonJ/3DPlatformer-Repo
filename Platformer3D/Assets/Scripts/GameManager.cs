@@ -8,8 +8,7 @@ public class GameManager : MonoBehaviour
     //This is a variable that is going to keep track of the score
     public int score;
 
-
-    //If I set the instance to this, I will be able to call this game objects functions from different classes or scripts!
+    //With the static type I will be able to call this class in other scripts without having to create an object of it, using this game object as a type will allow me to call non static methods as well
     public static GameManager instance;
 
     private void Awake()
@@ -70,6 +69,7 @@ public class GameManager : MonoBehaviour
         //Basically telling the level to restart
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
     // Update is called once per frame
     void Update()
     {

@@ -114,6 +114,8 @@ public class PlayerController : MonoBehaviour
 
             //Go into the GameManager class and activate the add score function
             GameManager.instance.AddScore(1);
+
+            
         }
         else if(other.CompareTag("Goal"))
         {
