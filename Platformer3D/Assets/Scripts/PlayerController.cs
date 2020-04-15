@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.position.y < -10)
         {
-            SceneManager.LoadScene(1);
+            GameUI.instance.SetEndScreen(false);
         }
 
         //Calls the move function
