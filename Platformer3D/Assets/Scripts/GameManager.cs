@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
 
     //A static objects methods will be treated as static, meaning you can use the object as a way to call those methods in other classes
 
+    //This is going to be true if the game is paused and false if it is not
+    public bool paused = false;
+
+
     private void Awake()
     {
         //So this is a way for checking for duplicate game objects, if there is a game object in the scene and it is not this one, destroy it
@@ -75,10 +79,11 @@ public class GameManager : MonoBehaviour
         GameUI.instance.SetEndScreen(false);
     }
 
+  
     
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 }

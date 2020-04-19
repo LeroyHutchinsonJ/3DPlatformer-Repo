@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
         //Calls the move function
         Move();
         
+     
     }
 
     void Move()
