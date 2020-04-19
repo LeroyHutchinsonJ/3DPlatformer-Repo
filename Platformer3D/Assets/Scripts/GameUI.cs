@@ -26,6 +26,7 @@ public class GameUI : MonoBehaviour
 
     public void TogglePauseScreen(bool pause)
     {
+
         pauseScreen.SetActive(pause);
     }
 
@@ -80,6 +81,8 @@ public class GameUI : MonoBehaviour
     //This function will be called when the restart button is pressed
     public void OnRestartButton()
     {
+        GameManager.instance.levelEnd = false;
+
         SceneManager.LoadScene(1);
     }
 

@@ -14,12 +14,14 @@ public class GameManager : MonoBehaviour
     //A static objects methods will be treated as static, meaning you can use the object as a way to call those methods in other classes
 
     //This is going to be true if the game is paused and false if it is not
-    public bool paused;
+    public bool paused = false;
 
+    //This is going to help me not show the menu if the user presses esc after dying
+    public bool levelEnd;
 
     private void Awake()
     {
-        //So this is a way for checking for duplicate game objects, if there is a game object in the scene and it is not this one, destroy it
+        //So this is a way for checking for duplicate game objects, the instance is not null and it is also not equal to this object, then destroy this object
         if (instance != null && instance != this)
         {
             //Destroy gameObject
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
     //This code will activate when the level ends
     public void LevelEnd()
     {
+        levelEnd = true;
         //Is this the last level? Check if the amount of available levels is equal to the current level +1, i add 1 because remember the level index starts at 0
         if(SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1)
         {
@@ -69,34 +72,45 @@ public class GameManager : MonoBehaviour
     //This function gets called when we finish all the levels
     public void WinGame()
     {
+        levelEnd = true;
         GameUI.instance.SetEndScreen(true);
+        //Pause the game when the player wins or loses
+        Time.timeScale = 0;
     }
 
     //This function gets called when we fail a level
     public void GameOver()
     {
+        levelEnd = true;
         //Calls the end screen function from game ui
         GameUI.instance.SetEndScreen(false);
+        //Pause the game when the player wins or loses
+        Time.timeScale = 0;
     }
 
   
     //This is going to be the pause game function
     public void TogglePauseGame()
     {
-        //Switch the value of the paused button
-        paused = !paused;
-
-        if(paused)
+        if(levelEnd != true)
         {
             
-            Time.timeScale = 0.0f;
+            //Switch the value of the paused button
+            paused = !paused;
+
+            if (paused)
+            {
+
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                Time.timeScale = 1.0f;
+            }
+            //Call the pause screen method in the Game UI class, pass in paused as a parameter
+            GameUI.instance.TogglePauseScreen(paused);
         }
-        else
-        {
-            Time.timeScale = 1.0f;
-        }
-        //Call the pause screen method in the Game UI class, pass in paused as a parameter
-        GameUI.instance.TogglePauseScreen(paused);
+      
 
     }
     

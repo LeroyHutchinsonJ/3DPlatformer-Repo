@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1.0f;
+
         //Get the rigid body component of the player
         rig = GetComponent<Rigidbody>();
 
@@ -28,13 +30,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        //If the game is paused simply end this function
+        if(GameManager.instance.paused == true)
+        {
+
+            return;
+        }
+
         if (transform.position.y < -10)
         {
-            GameUI.instance.SetEndScreen(false);
+            GameManager.instance.GameOver();
         }
 
         //Calls the move function
         Move();
+
+
         
      
     }
