@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     //A static objects methods will be treated as static, meaning you can use the object as a way to call those methods in other classes
 
     //This is going to be true if the game is paused and false if it is not
-    public bool paused = false;
+    public bool paused;
 
 
     private void Awake()
@@ -80,10 +80,33 @@ public class GameManager : MonoBehaviour
     }
 
   
+    //This is going to be the pause game function
+    public void TogglePauseGame()
+    {
+        //Switch the value of the paused button
+        paused = !paused;
+
+        if(paused)
+        {
+            
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
+        //Call the pause screen method in the Game UI class, pass in paused as a parameter
+        GameUI.instance.TogglePauseScreen(paused);
+
+    }
     
     // Update is called once per frame
     void Update()
     {
-       
+        //Call the pause game function
+        if (Input.GetButtonDown("Cancel"))
+        {
+           TogglePauseGame();
+        }
     }
 }

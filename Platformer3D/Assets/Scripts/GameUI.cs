@@ -12,6 +12,9 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI endScreenScoreText;
     public GameObject endScreen;
 
+    //This is for the pause screen
+    public GameObject pauseScreen;
+
     //I should create an instance so that I can access this classes methods from other objects as well
     public static GameUI instance;
 
@@ -21,10 +24,20 @@ public class GameUI : MonoBehaviour
     }
     //This function is called to update the score
 
+    public void TogglePauseScreen(bool pause)
+    {
+        pauseScreen.SetActive(pause);
+    }
+
     public void UpdateScoreText()
     {
         //This should set the text of the scoreText
         scoreText.text = "Score: " + GameManager.instance.score;
+    }
+
+    public void OnResumeBtn()
+    {
+        GameManager.instance.TogglePauseGame();
     }
 
     //This gets called when the player wins or dies
