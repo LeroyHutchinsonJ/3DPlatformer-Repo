@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public bool paused = false;
 
     //This is going to help me not show the menu if the user presses esc after dying
-    public bool levelEnd;
+ 
 
     private void Awake()
     {
@@ -55,10 +55,11 @@ public class GameManager : MonoBehaviour
     //This code will activate when the level ends
     public void LevelEnd()
     {
-        levelEnd = true;
+        
         //Is this the last level? Check if the amount of available levels is equal to the current level +1, i add 1 because remember the level index starts at 0
         if(SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1)
         {
+         
             //Display the win game screen
             WinGame();
         }
@@ -72,32 +73,32 @@ public class GameManager : MonoBehaviour
     //This function gets called when we finish all the levels
     public void WinGame()
     {
-        levelEnd = true;
+
         GameUI.instance.SetEndScreen(true);
         //Pause the game when the player wins or loses
         Time.timeScale = 0;
+
+        paused = true;
     }
 
     //This function gets called when we fail a level
     public void GameOver()
     {
-        levelEnd = true;
+    
         //Calls the end screen function from game ui
         GameUI.instance.SetEndScreen(false);
         //Pause the game when the player wins or loses
         Time.timeScale = 0;
+        paused = true;
     }
 
   
     //This is going to be the pause game function
     public void TogglePauseGame()
-    {
-        if(levelEnd != true)
-        {
-            
+    {    
             //Switch the value of the paused button
             paused = !paused;
-
+  
             if (paused)
             {
 
@@ -108,9 +109,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1.0f;
             }
             //Call the pause screen method in the Game UI class, pass in paused as a parameter
-            GameUI.instance.TogglePauseScreen(paused);
-        }
-      
+            GameUI.instance.TogglePauseScreen(paused); 
 
     }
     
@@ -118,9 +117,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //Call the pause game function
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel") && GameUI.instance.endScreenActive != true )
         {
-           TogglePauseGame();
+          
+                TogglePauseGame();
+
+           
         }
     }
 }

@@ -14,6 +14,7 @@ public class MenuCanvasController : MonoBehaviour
     //This function is gonna activate when the play button is pressed
     public void OnPlayButton()
     {
+
         SceneManager.LoadScene(1);
     }
 

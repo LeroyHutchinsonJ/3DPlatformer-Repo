@@ -15,6 +15,9 @@ public class GameUI : MonoBehaviour
     //This is for the pause screen
     public GameObject pauseScreen;
 
+    //This is to check if the end screen is active
+    public bool endScreenActive = false;
+
     //I should create an instance so that I can access this classes methods from other objects as well
     public static GameUI instance;
 
@@ -26,8 +29,11 @@ public class GameUI : MonoBehaviour
 
     public void TogglePauseScreen(bool pause)
     {
-
-        pauseScreen.SetActive(pause);
+        if(!endScreenActive)
+        {
+            pauseScreen.SetActive(pause);
+        }
+        
     }
 
     public void UpdateScoreText()
@@ -38,12 +44,14 @@ public class GameUI : MonoBehaviour
 
     public void OnResumeBtn()
     {
+        endScreenActive = false;
         GameManager.instance.TogglePauseGame();
     }
 
     //This gets called when the player wins or dies
     public void SetEndScreen(bool hasWon)
     {
+        endScreenActive = true;
         //This activates the game object(end screen)
         endScreen.SetActive(true);
 
@@ -75,20 +83,22 @@ public class GameUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+   
     }
 
     //This function will be called when the restart button is pressed
     public void OnRestartButton()
     {
-        GameManager.instance.levelEnd = false;
-
+        GameManager.instance.TogglePauseGame();
+        endScreenActive = false;
         SceneManager.LoadScene(1);
     }
 
     //This function will be called when the menu button is pressed
     public void OnMenuButton()
     {
+        GameManager.instance.TogglePauseGame();
+        endScreenActive = false;
         SceneManager.LoadScene(0);
     }
 }

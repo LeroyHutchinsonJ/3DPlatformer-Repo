@@ -238,26 +238,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8915610401962203767, guid: 72804c3f733c02142a1cc00ebe4ed1eb,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8915610401962203767, guid: 72804c3f733c02142a1cc00ebe4ed1eb,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8915610401962203767, guid: 72804c3f733c02142a1cc00ebe4ed1eb,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8915610401962203767, guid: 72804c3f733c02142a1cc00ebe4ed1eb,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72804c3f733c02142a1cc00ebe4ed1eb, type: 3}
 --- !u!1 &52578634 stripped
@@ -310,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  paused: 0
 --- !u!4 &103240964
 Transform:
   m_ObjectHideFlags: 0
