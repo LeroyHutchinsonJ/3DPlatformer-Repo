@@ -29,11 +29,7 @@ public class GameUI : MonoBehaviour
 
     public void TogglePauseScreen(bool pause)
     {
-        if(!endScreenActive)
-        {
-            pauseScreen.SetActive(pause);
-        }
-        
+            pauseScreen.SetActive(pause);  
     }
 
     public void UpdateScoreText()

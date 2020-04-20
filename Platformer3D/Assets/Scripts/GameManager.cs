@@ -95,7 +95,10 @@ public class GameManager : MonoBehaviour
   
     //This is going to be the pause game function
     public void TogglePauseGame()
-    {    
+    {   
+        
+        //If the game is paused it will unpaused it
+
             //Switch the value of the paused button
             paused = !paused;
   
@@ -118,11 +121,8 @@ public class GameManager : MonoBehaviour
     {
         //Call the pause game function
         if (Input.GetButtonDown("Cancel") && GameUI.instance.endScreenActive != true )
-        {
-          
-                TogglePauseGame();
-
-           
+        {     
+                TogglePauseGame();       
         }
     }
 }
