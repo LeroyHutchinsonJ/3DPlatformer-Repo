@@ -85,6 +85,7 @@ public class GameUI : MonoBehaviour
     //This function will be called when the restart button is pressed
     public void OnRestartButton()
     {
+        
         GameManager.instance.TogglePauseGame();
         endScreenActive = false;
         SceneManager.LoadScene(1);

@@ -30,12 +30,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  
-        
-        //If the game is paused simply end this function
-        if(GameManager.instance.paused == true)
-        {
 
+       
+
+        //If the game is paused simply end this function
+        if (GameUI.instance.endScreenActive == true)
+        {
             return;
         }
 
@@ -45,10 +45,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Calls the move function
-        Move();
-
-
-        
+        Move();    
      
     }
 
