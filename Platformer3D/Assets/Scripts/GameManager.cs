@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     //This function gets called when we finish all the levels
     public void WinGame()
     {
-        paused = true;
+      
         GameUI.instance.SetEndScreen(true);
         //Pause the game when the player wins or loses
         Time.timeScale = 0;
@@ -84,37 +84,39 @@ public class GameManager : MonoBehaviour
     //This function gets called when we fail a level
     public void GameOver()
     {
+        Debug.Log("GameOver Function");
 
-
-        paused = true;
         //Calls the end screen function from game ui
         GameUI.instance.SetEndScreen(false);
-        //Pause the game when the player wins or loses
-        Time.timeScale = 0;
-       
+        
+
+
+
     }
 
   
     //This is going to be the pause game function
     public void TogglePauseGame()
-    {   
-        
+    {
+        Debug.Log("Toggle Pause Game Func");
         //If the game is paused it will unpaused it
 
-            //Switch the value of the paused button
-            paused = !paused;
-  
-            if (paused)
+        //Switch the value of the paused button
+        paused = !paused;
+        Debug.Log("Toggle Pause Game Func, paused is " + paused);
+
+        if (paused)
             {
 
                 Time.timeScale = 0.0f;
             }
             else
             {
-                Time.timeScale = 1.0f;
-            }
             //Call the pause screen method in the Game UI class, pass in paused as a parameter
-            GameUI.instance.TogglePauseScreen(paused); 
+            
+            Time.timeScale = 1.0f;
+            }
+        GameUI.instance.TogglePauseScreen(paused);
 
     }
     

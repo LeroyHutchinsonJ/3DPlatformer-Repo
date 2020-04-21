@@ -29,6 +29,7 @@ public class GameUI : MonoBehaviour
 
     public void TogglePauseScreen(bool pause)
     {
+        Debug.Log("Toggle Pause Screen Function");
             pauseScreen.SetActive(pause);  
     }
 
@@ -47,10 +48,13 @@ public class GameUI : MonoBehaviour
     //This gets called when the player wins or dies
     public void SetEndScreen(bool hasWon)
     {
+       
+        Debug.Log("Set End Screen Function");
+        Time.timeScale = 0.0f;
         endScreenActive = true;
         //This activates the game object(end screen)
         endScreen.SetActive(true);
-
+       
         //This is going to set the text of the end screen score
         endScreenScoreText.text = "<b>Score</b>\n" + GameManager.instance.score;
 
@@ -85,17 +89,20 @@ public class GameUI : MonoBehaviour
     //This function will be called when the restart button is pressed
     public void OnRestartButton()
     {
-        
-        GameManager.instance.TogglePauseGame();
+        //This will pause the game 
+        Time.timeScale = 1.0f;
+        Debug.Log("Restart Function, pause is " + GameManager.instance.paused);
         endScreenActive = false;
+        GameManager.instance.paused = false;
+        Debug.Log("THE PAUSE BUTTON IS " + GameManager.instance.paused);
         SceneManager.LoadScene(1);
     }
 
     //This function will be called when the menu button is pressed
     public void OnMenuButton()
     {
-        GameManager.instance.TogglePauseGame();
         endScreenActive = false;
+        GameManager.instance.TogglePauseGame();
         SceneManager.LoadScene(0);
     }
 }
