@@ -95,14 +95,17 @@ public class GameUI : MonoBehaviour
         endScreenActive = false;
         GameManager.instance.paused = false;
         Debug.Log("THE PAUSE BUTTON IS " + GameManager.instance.paused);
+        GameManager.instance.score = 0;
         SceneManager.LoadScene(1);
     }
 
     //This function will be called when the menu button is pressed
     public void OnMenuButton()
     {
+        Time.timeScale = 1.0f;
         endScreenActive = false;
-        GameManager.instance.TogglePauseGame();
+        GameManager.instance.paused = false;
+        GameManager.instance.score = 0;
         SceneManager.LoadScene(0);
     }
 }

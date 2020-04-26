@@ -88,9 +88,6 @@ public class GameManager : MonoBehaviour
 
         //Calls the end screen function from game ui
         GameUI.instance.SetEndScreen(false);
-        
-
-
 
     }
 
