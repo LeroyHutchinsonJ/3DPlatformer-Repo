@@ -35,15 +35,14 @@ public class PlayerController : MonoBehaviour
 
         //If the game is paused simply end this function
         if (GameManager.instance.paused == true)
-        { 
+        {
+            Debug.Log("Game is Paused");
             return;
         }
 
         if (transform.position.y < -20)
         {
-            Debug.Log("Player fell below the natural threshold, he is currently at " + transform.position.y);
-            GameManager.instance.GameOver();
-        
+            GameManager.instance.GameOver();     
         }
 
         //Calls the move function
@@ -111,7 +110,7 @@ public class PlayerController : MonoBehaviour
     //This triggers when I collide with something 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("The on trigger function is called ");
+        Debug.Log("I Hit Something");
         //If the thing I collide with has an enemy tag
         if (other.CompareTag("Enemy"))
         {

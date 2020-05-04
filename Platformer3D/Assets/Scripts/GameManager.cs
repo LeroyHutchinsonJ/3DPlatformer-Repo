@@ -84,24 +84,19 @@ public class GameManager : MonoBehaviour
     //This function gets called when we fail a level
     public void GameOver()
     {
-        Debug.Log("GameOver Function");
-
         //Calls the end screen function from game ui
         GameUI.instance.SetEndScreen(false);
-
     }
 
   
     //This is going to be the pause game function
     public void TogglePauseGame()
     {
-        Debug.Log("Toggle Pause Game Func");
         //If the game is paused it will unpaused it
 
         //Switch the value of the paused button
         paused = !paused;
-        Debug.Log("Toggle Pause Game Func, paused is " + paused);
-
+     
         if (paused)
             {
 

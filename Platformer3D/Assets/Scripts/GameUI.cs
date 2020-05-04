@@ -91,10 +91,8 @@ public class GameUI : MonoBehaviour
     {
         //This will pause the game 
         Time.timeScale = 1.0f;
-        Debug.Log("Restart Function, pause is " + GameManager.instance.paused);
         endScreenActive = false;
         GameManager.instance.paused = false;
-        Debug.Log("THE PAUSE BUTTON IS " + GameManager.instance.paused);
         GameManager.instance.score = 0;
         SceneManager.LoadScene(1);
     }
