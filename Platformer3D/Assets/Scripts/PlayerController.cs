@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         //If the game is paused simply end this function
         if (GameManager.instance.paused == true)
         {
-            Debug.Log("Game is Paused");
+          
             return;
         }
 
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
     //This triggers when I collide with something 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("I Hit Something");
+    
         //If the thing I collide with has an enemy tag
         if (other.CompareTag("Enemy"))
         {
