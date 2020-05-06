@@ -1,0 +1,10 @@
+Movement Keys
+
+W or Up(Arrow Key)  To Move Forward
+A or Left(Arrow Key) To Move Left
+D or Right(Arrow Key) To Move Right
+S or Down(Arrow Key) To Move Down
+
+Spacebar To Jump
+
+Esc Key to Pause Game
