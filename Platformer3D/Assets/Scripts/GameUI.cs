@@ -92,7 +92,8 @@ public class GameUI : MonoBehaviour
         endScreenActive = false;
         GameManager.instance.paused = false;
         GameManager.instance.score = 0;
-        SceneManager.LoadScene(1);
+        Scene CurrScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(CurrScene.name);
     }
 
     //This function will be called when the menu button is pressed
