@@ -18738,6 +18738,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8915610400045346724, guid: 72804c3f733c02142a1cc00ebe4ed1eb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8915610400409561446, guid: 72804c3f733c02142a1cc00ebe4ed1eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18847,6 +18852,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915610401260803288, guid: 72804c3f733c02142a1cc00ebe4ed1eb,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915610401260803294, guid: 72804c3f733c02142a1cc00ebe4ed1eb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72804c3f733c02142a1cc00ebe4ed1eb, type: 3}
