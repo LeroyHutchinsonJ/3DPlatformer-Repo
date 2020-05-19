@@ -15,41 +15,53 @@ public class FloatController : MonoBehaviour
     //This is the target position, it is a private variable
     private Vector3 targetPos;
 
+    private Rigidbody rb;
     private void Awake()
     {
         startPos = transform.position;
         targetPos = startPos + offsetEndPos;
 
+        //This gets the current rigidbody of the component
+        rb = GetComponent<Rigidbody>();
+       
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb.isKinematic = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Gradually increase te transform position until it gets to the target position from the current position
+        
+    }
+
+    private void FixedUpdate()
+    {
+        //Gradually increase the transform position until it gets to the target position from the current position
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
+        
+
         //If the object is at the target position
-        if(transform.position == targetPos)
+        if (transform.position == targetPos)
         {
             //If the object is back where it started
-            if(targetPos == startPos)
+            if (targetPos == startPos)
             {
                 //Set the target position to the end
                 targetPos = startPos + offsetEndPos;
             }
-            else if(targetPos == startPos + offsetEndPos) //If the object is at the end
-            {     
+            else if (targetPos == startPos + offsetEndPos) //If the object is at the end
+            {
                 //Set the target position to the place where the box started
                 targetPos = startPos;
             }
         }
-    }
- 
   
+       // rb.MovePosition(startPos + targetPos * Time.fixedDeltaTime);
+
+    }
 
 }
