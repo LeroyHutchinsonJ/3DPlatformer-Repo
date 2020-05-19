@@ -47,6 +47,7 @@ public class FloatController : MonoBehaviour
         //If the object is at the target position
         if (transform.position == targetPos)
         {
+
             //If the object is back where it started
             if (targetPos == startPos)
             {
@@ -63,5 +64,6 @@ public class FloatController : MonoBehaviour
        // rb.MovePosition(startPos + targetPos * Time.fixedDeltaTime);
 
     }
+   
 
 }

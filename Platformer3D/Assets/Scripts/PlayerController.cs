@@ -135,7 +135,29 @@ public class PlayerController : MonoBehaviour
             //Calls the level end function when the goal is pressed
             GameManager.instance.LevelEnd();
         }
+        
     }
 
-    
+    void OnTriggerStay(Collider other)
+    {
+
+        if (other.gameObject.tag == "Platform")
+        {
+            transform.parent = other.transform;
+           
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Platform")
+        {
+            transform.parent = null;
+
+        }
+    }
+
+
+
+
 }

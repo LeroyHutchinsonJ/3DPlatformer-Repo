@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Gradually increase te transform position until it gets to the target position from the current position
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
